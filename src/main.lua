@@ -56,16 +56,22 @@ local function main()
             -- set the key/ fader
             if parsed.exec_type == "Key" then
                 -- set the key and clear the fader
-                if remote.target ~= getExecKey(parsed.page, parsed.id) then
-                    remote.target = getExecKey(parsed.page, parsed.id)
+                if remote.key ~= getExecKey(parsed.page, parsed.id) then
+                    remote.key = getExecKey(parsed.page, parsed.id)
                 end
                 remote.fader = ""
             else
                 -- set the fader and clear the key
-                if remote.target ~= getExecFader(parsed.page, parsed.id) then
-                    remote.target = getExecFader(parsed.page, parsed.id)
+                if remote.fader ~= getExecFader(parsed.page, parsed.id) then
+                    remote.fader = getExecFader(parsed.page, parsed.id)
                 end
                 remote.key = ""
+            end
+
+            if CurrentExecPage().no == tonumber(parsed.page) then
+                remote.enabled = true
+            else
+                remote.enabled = false
             end
         end
     end
