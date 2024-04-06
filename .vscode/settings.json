@@ -2,6 +2,6 @@
     "Lua.diagnostics.globals": [
         "CurrentExecPage",
         "ObjectList",
-        "Root"
+        "Root",
     ]
 }
