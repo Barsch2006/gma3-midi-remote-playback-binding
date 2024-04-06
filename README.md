@@ -13,7 +13,8 @@ Small abstractions for my specific use case of the [GrandMA3 Midi Executors Plug
 The plugin will automatically configure the `target`, `key` and `fader` column of the Midi Remote to the values you gave your Macro/ Sequence/ etc. in the Playbacks.
 The plugin will enable and disable the Midi Remote based on the page you are currently on.
 
-## Notes
+## Note
 
 -   All Midi remotes without a page are assigned to every page
 -   Locking the Midi Remotes will prevent the plugin from changing it's assignment
+-   XKeys are also Playbacks, just assign them like you would assign an executor
