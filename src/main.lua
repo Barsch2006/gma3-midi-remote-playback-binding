@@ -30,13 +30,13 @@ end
 
 local function parseRemoteNote(note)
     local parsed = {}
-    parsed.type, parsed.page, parsed.id, parsed.exec_type = note:match("(%a+) (%d+)-(%d+) (%a+)")
-    if parsed.type and parsed.page and parsed.id and (parsed.exec_type == "Key" or parsed.exec_type == "Fader") then
+    parsed.page, parsed.id, parsed.exec_type = note:match("Target: (%d+).(%d+) (%a+)")
+    if parsed.page and parsed.id and (parsed.exec_type == "Key" or parsed.exec_type == "Fader") then
         return parsed
     else
         parsed.page = CurrentExecPage().no
-        parsed.type, parsed.id, parsed.exec_type = note:match("(%a+) (%d+) (%a+)")
-        if (parsed.type == "Exec" or parsed.type == "XKey") and parsed.page and parsed.id and (parsed.exec_type == "Key" or parsed.exec_type == "Fader") then
+        parsed.id, parsed.exec_type = note:match("Target: (%d+) (%a+)")
+        if parsed.page and parsed.id and (parsed.exec_type == "Key" or parsed.exec_type == "Fader") then
             return parsed
         else
             return nil
