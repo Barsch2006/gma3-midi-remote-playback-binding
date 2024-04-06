@@ -1,31 +1,8 @@
-# GrandMA3 Midi Executors
-### Allows you to map Midi Remotes in MA3 to Executors
+# GrandMA3 Plugin Assign Midi Remotes to Executors
 
-## Installation
-Download [.zip](https://github.com/lenschcode/MA3-Midi-Executors/releases/latest/download/midi_executors.zip) from [Releases](https://github.com/lenschcode/MA3-Midi-Executors/releases/latest) or clone the repository into your `gma3_library/datapools/plugins/`folder. The name of the plugin folder needs to be `midi_executors` and all the files need to be in that folder.
-Then in MA3 open up the plugin pool, edit an empty slot, then press "import" and select `midi_executors`. After Installation you can simply press the plugin and it will open up a startup prompt.
-
-## Usage
-When pressing on the plugin you will have 2 options: "Start" and "Run Once". When you press Start the plugin will run and update the Midi assignment every 0.5 seconds, with "Run Once" the plugin will only update the midi mapping once to the current assigned sequences/masters of the executors.
-
-Once the plugin is running pressing it again will open up a menu with the option to stop the plugin. 
-
-## Configuration
-### Create Midi Remotes 
-Create the Midi Remotes with your input settings: Channel, Note and Type. These configurations will not be changed by the plugin.
-
-### Assign Midi Remotes to Executors
-In order to assign Midi Remotes to Executors you simply have to change their name to the desired Executor in this format: `(<Prefix>) Executor (<Page>-)<ExecId> <Key/Fader>`, where `<Prefix>`  can be any given prefix text, `(<Page>-)` is optional for having it mapped to a specific page, `<ExecId>` any Executor number and `<Key/Fader>` needs to be set to either "Key" or "Fader", depending on whether you want the Midi Remote to have the Key or Fader action of the Executor.
-#### Examples:
-`APC40 Fader 1 Executor 201 Fader`
-`Launchpad Mini Button 1 Executor 101 Key`
-`Ableton Push Pad 1 Executor 8-101 Key`
-
-### Refreshrate
-If you want to change the refresh rate of the plugin checking the executor assignment you can change `local rate = 0.5` in the top of the plugin to any number in seconds, although 0.5 is recommended for almost instant updating.
+Small abstractions for my specific use case of the [GrandMA3 Midi Executors Plugin by @Lenschcode](https://github.com/lenschcode/gma3-midi-executors)
 
 ## Notes
-- All Midi remotes without a page are assigned to the active page
-- The notation for page specific executors has to be `10-101`, because `.` are not allowed in the name
-- All other options for the Midi Remotes won't be changed by the plugin
-- Locking the Midi Remotes will prevent the plugin from changing it's assignment
+
+-   All Midi remotes without a page are assigned to the active page
+-   Locking the Midi Remotes will prevent the plugin from changing it's assignment
